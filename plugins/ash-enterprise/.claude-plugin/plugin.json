@@ -1,0 +1,12 @@
+{
+  "name": "ash-enterprise-plugin",
+  "description": "Fully fledged end to end custom plugin",
+  "version": "1.0.0",
+  "author": {
+    "name": "John Ashabahebwa"
+  },
+  "skills": [
+    "./skills/prd-creator"
+  ],
+  "mcpServers": "./mcp.json"
+}

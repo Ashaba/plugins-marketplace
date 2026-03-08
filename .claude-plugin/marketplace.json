@@ -1,0 +1,13 @@
+{
+  "name": "ashabahebwa-plugins",
+  "owner": {
+    "name": "John Ashabahebwa"
+  },
+  "plugins": [
+    {
+      "name": "ash-enterprise-plugin",
+      "source": "./plugins/ash-enterprise",
+      "description": "Adds multiple skills including one for creating prd documentation"
+    }
+  ]
+}
