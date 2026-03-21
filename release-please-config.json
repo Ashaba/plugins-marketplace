@@ -1,0 +1,62 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    "plugins/ash-enterprise": {
+      "release-type": "generic",
+      "component": "ash-enterprise-plugin",
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": ".claude-plugin/plugin.json",
+          "jsonpath": "$.version"
+        }
+      ]
+    },
+    "plugins/ash-enterprise/skills/front-end-design": {
+      "release-type": "generic",
+      "component": "skill-frontend-design",
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "SKILL.md"
+        }
+      ]
+    },
+    "plugins/ash-enterprise/skills/prd-creator": {
+      "release-type": "generic",
+      "component": "skill-prd-creator",
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "SKILL.md"
+        }
+      ]
+    },
+    "plugins/ash-enterprise/skills/principal-architect": {
+      "release-type": "generic",
+      "component": "skill-principal-architect",
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "SKILL.md"
+        }
+      ]
+    },
+    "plugins/ash-enterprise/skills/software-engineer": {
+      "release-type": "generic",
+      "component": "skill-software-engineer",
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "SKILL.md"
+        }
+      ]
+    }
+  }
+}
+

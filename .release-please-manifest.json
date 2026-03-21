@@ -1,0 +1,8 @@
+{
+  "plugins/ash-enterprise": "1.1.0",
+  "plugins/ash-enterprise/skills/front-end-design": "1.0.0",
+  "plugins/ash-enterprise/skills/prd-creator": "1.1.0",
+  "plugins/ash-enterprise/skills/principal-architect": "1.0.0",
+  "plugins/ash-enterprise/skills/software-engineer": "1.0.0"
+}
+
