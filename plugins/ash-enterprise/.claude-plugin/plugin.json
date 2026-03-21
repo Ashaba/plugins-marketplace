@@ -1,7 +1,7 @@
 {
   "name": "ash-enterprise-plugin",
   "description": "Fully fledged end to end custom plugin",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": {
     "name": "John Ashabahebwa"
   },

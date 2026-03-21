@@ -1,6 +1,6 @@
 ---
 name: ticket-writer
-version: 1.0.0 # x-release-please-version
+version: 1.1.0 # x-release-please-version
 description: >
   Convert rough ideas, bugs, or feature requests into well-structured engineering tickets.
   Use this skill whenever a user wants to: write a Jira/Linear/GitHub issue, document a bug
