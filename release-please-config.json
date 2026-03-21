@@ -1,10 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "simple",
+  "changelog-path": "CHANGELOG.md",
   "packages": {
     "plugins/ash-enterprise": {
-      "release-type": "simple",
       "component": "ash-enterprise-plugin",
-      "changelog-path": "CHANGELOG.md",
       "extra-files": [
         {
           "type": "json",
@@ -14,9 +14,7 @@
       ]
     },
     "plugins/ash-enterprise/skills/front-end-design": {
-      "release-type": "simple",
       "component": "skill-frontend-design",
-      "changelog-path": "CHANGELOG.md",
       "extra-files": [
         {
           "type": "generic",
@@ -25,9 +23,7 @@
       ]
     },
     "plugins/ash-enterprise/skills/prd-creator": {
-      "release-type": "simple",
       "component": "skill-prd-creator",
-      "changelog-path": "CHANGELOG.md",
       "extra-files": [
         {
           "type": "generic",
@@ -36,9 +32,7 @@
       ]
     },
     "plugins/ash-enterprise/skills/principal-architect": {
-      "release-type": "simple",
       "component": "skill-principal-architect",
-      "changelog-path": "CHANGELOG.md",
       "extra-files": [
         {
           "type": "generic",
@@ -47,9 +41,7 @@
       ]
     },
     "plugins/ash-enterprise/skills/software-engineer": {
-      "release-type": "simple",
       "component": "skill-software-engineer",
-      "changelog-path": "CHANGELOG.md",
       "extra-files": [
         {
           "type": "generic",
@@ -58,9 +50,7 @@
       ]
     },
     "plugins/ash-enterprise/skills/ticket-writer": {
-      "release-type": "simple",
       "component": "skill-ticket-writer",
-      "changelog-path": "CHANGELOG.md",
       "extra-files": [
         {
           "type": "generic",
@@ -70,4 +60,3 @@
     }
   }
 }
-
