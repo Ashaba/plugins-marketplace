@@ -9,6 +9,7 @@
     "./skills/front-end-design",
     "./skills/prd-creator",
     "./skills/principal-architect",
-    "./skills/software-engineer"
+    "./skills/software-engineer",
+    "./skills/ticket-writer"
   ]
 }

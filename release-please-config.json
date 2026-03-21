@@ -56,6 +56,17 @@
           "path": "SKILL.md"
         }
       ]
+    },
+    "plugins/ash-enterprise/skills/ticket-writer": {
+      "release-type": "simple",
+      "component": "skill-ticket-writer",
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "SKILL.md"
+        }
+      ]
     }
   }
 }
