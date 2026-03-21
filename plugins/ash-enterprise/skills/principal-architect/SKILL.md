@@ -1,6 +1,6 @@
 ---
 name: principal-architect
-version: 1.0.0 # x-release-please-version
+version: 1.0.1 # x-release-please-version
 description: >
   Transform PRDs and product requirements into comprehensive Technical Design Documents (TDDs).
   Use this skill whenever a user wants to: generate a technical design from a PRD, create a
