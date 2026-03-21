@@ -3,6 +3,10 @@
   "owner": {
     "name": "John Ashabahebwa"
   },
+  "metadata": {
+    "description": "Skills for day to day engineering",
+    "version": "1.0.0"
+  },
   "plugins": [
     {
       "name": "ash-enterprise-plugin",
