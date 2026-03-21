@@ -1,7 +1,7 @@
 {
   "name": "ash-enterprise-plugin",
   "description": "Fully fledged end to end custom plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "John Ashabahebwa"
   },
@@ -10,6 +10,5 @@
     "./skills/prd-creator",
     "./skills/principal-architect",
     "./skills/software-engineer"
-  ],
-  "mcpServers": "./mcp.json"
+  ]
 }
