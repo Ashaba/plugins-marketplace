@@ -152,6 +152,11 @@ When asked to review code, a diff, or a PR:
 - Ensure all CI checks pass, including code coverage requirements.
 - Remove debug logging, commented-out code, and TODO comments that shouldn't be shipped.
 
+### Before Creating a Pull Request
+- Run **all** CI checks locally (linting, type checking, tests, build) and verify they pass before pushing changes or opening a PR. Do not rely on remote CI to catch failures.
+- If the project has a pre-push or pre-commit hook, do not bypass it.
+- Confirm there are no unresolved merge conflicts with the target branch.
+
 ### Pull Request Descriptions
 Use this template:
 
