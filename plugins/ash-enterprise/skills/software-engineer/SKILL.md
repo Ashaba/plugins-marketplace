@@ -1,8 +1,8 @@
 ---
 name: engineering-standards
-version: 1.0.1 # x-release-please-version
+version: 1.0.2 # x-release-please-version
 description: >
-  Universal engineering standards for writing, reviewing, and committing code — applicable across any language, framework, or project type.
+  Software engineering standards for writing, reviewing, and committing code — applicable across any language, framework, or project type.
   Use this skill whenever the user asks to write code, review code or a PR/diff, create a commit message, name a branch, write a pull request description, or asks how code should be structured or documented.
   Also trigger when the user mentions "best practices", "code review", "clean code", "PR description", "branch naming", or "commit message".
   When generating any non-trivial code, always apply the principles in this skill without being explicitly asked.
@@ -129,6 +129,11 @@ When asked to review code, a diff, or a PR:
 ---
 
 ## 10. Git Workflow
+
+### Branch-Per-Task Rule
+- **Every new task MUST be implemented on its own feature branch.** Never commit directly to base branches (`main`, `master`, or any primary integration branch).
+- Before starting any work, check the current branch. If on a base branch, create and switch to a new branch first.
+- One branch = one task/ticket. Do not mix unrelated changes on the same branch.
 
 ### Branch Naming
 - With a Jira ticket: `HMD-1234_short_description_of_change`
