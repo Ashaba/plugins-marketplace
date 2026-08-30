@@ -4,13 +4,15 @@ version: 1.0.2 # x-release-please-version
 description: >
   Software engineering standards for writing, reviewing, and committing code — applicable across any language, framework, or project type.
   Use this skill whenever the user asks to write code, review code or a PR/diff, create a commit message, name a branch, write a pull request description, or asks how code should be structured or documented.
-  Also trigger when the user mentions "best practices", "code review", "clean code", "PR description", "branch naming", or "commit message".
-  When generating any non-trivial code, always apply the principles in this skill without being explicitly asked.
+  Also trigger when the user mentions "best practices", "code review", "clean code", "PR description", "branch naming", "refactor" or "commit message".
+  When generating any code, always apply the principles in this skill without being explicitly asked.
+  If you are on the main branch, make sure you first pull the latest changes and create a branch for the changes you intend to make. 
+  If in a branch, make sure its not a stale branch (one that's already merged in base branch), otherwise, checkout master/main and create a new branch for your changes. If the user asks you to review code, a PR, or a diff, always apply the principles in this skill when providing feedback.
 ---
 
 # Engineering Standards
 
-A universal reference for writing, reviewing, and shipping high-quality code — regardless of language or framework.
+A Reference for writing, reviewing, and shipping high-quality code — regardless of language or framework.
 
 ---
 
@@ -21,9 +23,9 @@ A universal reference for writing, reviewing, and shipping high-quality code —
 - Use **descriptive, unambiguous names** for variables, functions, classes, and files. Long names are fine; vague ones are not.
 - Avoid abbreviations unless they are universally understood in context (e.g., `id`, `url`, `err`).
 
-### DRY — Don't Repeat Yourself
+### DRY - Don't Repeat Yourself
 - Extract repeated logic into shared functions, hooks, utilities, or base classes.
-- Shared types, contracts, or DTOs belong in **centralized modules** — never duplicated.
+- Shared types, contracts, or DTOs belong in **centralized modules** - never duplicated.
 
 ### Single Responsibility
 - Each function, class, component, or module should have **one clear purpose**.
@@ -154,7 +156,6 @@ When asked to review code, a diff, or a PR:
 
 ### Before Creating a Pull Request
 - Run **all** CI checks locally (linting, type checking, tests, build) and verify they pass before pushing changes or opening a PR. Do not rely on remote CI to catch failures.
-- If the project has a pre-push or pre-commit hook, do not bypass it.
 - Confirm there are no unresolved merge conflicts with the target branch.
 
 ### Pull Request Descriptions
