@@ -1,6 +1,5 @@
 ---
-name: engineering-standards
-version: 1.0.2 # x-release-please-version
+name: software-engineer
 description: >
   Software engineering standards for writing, reviewing, and committing code — applicable across any language, framework, or project type.
   Use this skill whenever the user asks to write code, review code or a PR/diff, create a commit message, name a branch, write a pull request description, or asks how code should be structured or documented.
