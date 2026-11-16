@@ -17,12 +17,13 @@ How to change this repo. This applies to people and to coding agents.
 4. Frontmatter must only use `name`, `description`, `license`, `allowed-tools`, `metadata` and `compatibility`. Put anything else, such as `author`, under `metadata`.
 5. `description` must be 1024 characters or fewer. It should say what the skill does and when to use it, since agents decide whether to load a skill from its description.
 6. Long reference material should go in a `references/` folder next to `SKILL.md`.
+7. A PR that changes a skill, including a wording-only change, must use `feat` or `fix` in its title. A `docs` title merges but never releases, so installed users never get the change.
 
 ## Versions and releases
 
 release-please owns the version and `CHANGELOG.md`. Never edit them by hand.
 
-- A `feat` or `fix` PR releases a new plugin version. `docs`, `chore`, `ci`, `refactor` and `test` PRs don't.
+- A `feat`, `fix`, `perf` or `revert` PR releases a new plugin version. Other types, such as `docs`, `chore`, `ci`, `refactor` and `test`, don't.
 - After a releasing PR merges, release-please opens a release PR. Merging that PR bumps the version in `plugin.json` and tags the release. The version bump is what makes Claude Code offer the update to users.
 - Removing a skill, renaming a skill folder or renaming the plugin breaks users. Avoid these changes. If one can't be avoided, mark the PR title with `!`, for example `feat!: remove the ticket-writer skill`.
 
