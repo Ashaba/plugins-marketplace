@@ -6,26 +6,28 @@ This is a personal collection. No company supports it.
 
 ## Install in Claude Code
 
+In a terminal, run:
+
 ```
-/plugin install ash-enterprise-plugin --marketplace Ashaba/plugins-marketplace
+claude plugin install ash-enterprise-plugin --marketplace Ashaba/plugins-marketplace
 ```
 
-On Claude Code versions older than 2.1.275, add the marketplace first:
+Or, inside a Claude Code session, type:
 
 ```
 /plugin marketplace add Ashaba/plugins-marketplace
 /plugin install ash-enterprise-plugin@ashabahebwa-plugins
 ```
 
-Claude uses a skill on its own when your request matches it. To run one directly, type `/ash-enterprise-plugin:<skill>`, for example `/ash-enterprise-plugin:prd-creator`. The skills are in [plugins/ash-enterprise/skills](plugins/ash-enterprise/skills).
+Claude uses a skill on its own when your request matches it. To run one directly, type `/ash-enterprise-plugin:<skill>` in a Claude Code session, for example `/ash-enterprise-plugin:prd-creator`. The skills are in [plugins/ash-enterprise/skills](plugins/ash-enterprise/skills).
 
 ## Get updates
 
 Every merged feature or fix releases a new plugin version. Claude Code only installs a new copy when the version changes.
 
-Auto-update is off by default for this marketplace. To turn it on, run `/plugin`, open the **Marketplaces** tab, select `ashabahebwa-plugins`, and select **Enable auto-update**.
+Auto-update is off by default for this marketplace. To turn it on, type `/plugin` in a Claude Code session, open the **Marketplaces** tab, select `ashabahebwa-plugins`, and select **Enable auto-update**.
 
-To update by hand:
+To update by hand, run in a terminal:
 
 ```
 claude plugin marketplace update ashabahebwa-plugins
@@ -34,7 +36,7 @@ claude plugin update ash-enterprise-plugin@ashabahebwa-plugins
 
 ## Use the skills in other agents
 
-[`npx skills`](https://github.com/vercel-labs/skills) installs the skills into other agents. It needs Node.js 22.20 or later.
+[`npx skills`](https://github.com/vercel-labs/skills) installs the skills into other agents. It needs Node.js 22.20 or later. Run these in a terminal:
 
 ```
 npx skills add Ashaba/plugins-marketplace --list
