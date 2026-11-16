@@ -1,6 +1,5 @@
 ---
 name: prd-creator
-version: 1.1.1 # x-release-please-version
 description: >
  Create comprehensive, AI-ready Product Requirements Documents (PRD.md files).
  Use when users want to: (1) Create a new PRD for a feature or product,
@@ -8,7 +7,8 @@ description: >
  that can be used by any AI coding assistant, (4) Structure a product idea
  into actionable requirements. Triggers on: "create a PRD", "write requirements",
  "document this feature", "PRD for X", "product requirements", "spec out X".
-author: Ash
+metadata:
+  author: Ash
 allowed-tools:
  - Read
  - Glob

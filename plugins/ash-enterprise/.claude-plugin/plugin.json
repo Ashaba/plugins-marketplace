@@ -1,15 +1,8 @@
 {
   "name": "ash-enterprise-plugin",
-  "description": "Fully fledged end to end custom plugin",
+  "description": "Skills for PRDs, technical design docs, tickets, front-end design and engineering standards.",
   "version": "1.2.0",
   "author": {
     "name": "John Ashabahebwa"
-  },
-  "skills": [
-    "./skills/front-end-design",
-    "./skills/prd-creator",
-    "./skills/principal-architect",
-    "./skills/software-engineer",
-    "./skills/ticket-writer"
-  ]
+  }
 }

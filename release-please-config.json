@@ -4,7 +4,6 @@
   "changelog-path": "CHANGELOG.md",
   "include-component-in-tag": true,
   "include-v-in-tag": true,
-  "separate-pull-requests": true,
   "packages": {
     "plugins/ash-enterprise": {
       "component": "ash-enterprise-plugin",
@@ -13,51 +12,6 @@
           "type": "json",
           "path": ".claude-plugin/plugin.json",
           "jsonpath": "$.version"
-        }
-      ]
-    },
-    "plugins/ash-enterprise/skills/front-end-design": {
-      "component": "skill-frontend-design",
-      "extra-files": [
-        {
-          "type": "generic",
-          "path": "SKILL.md"
-        }
-      ]
-    },
-    "plugins/ash-enterprise/skills/prd-creator": {
-      "component": "skill-prd-creator",
-      "extra-files": [
-        {
-          "type": "generic",
-          "path": "SKILL.md"
-        }
-      ]
-    },
-    "plugins/ash-enterprise/skills/principal-architect": {
-      "component": "skill-principal-architect",
-      "extra-files": [
-        {
-          "type": "generic",
-          "path": "SKILL.md"
-        }
-      ]
-    },
-    "plugins/ash-enterprise/skills/software-engineer": {
-      "component": "skill-software-engineer",
-      "extra-files": [
-        {
-          "type": "generic",
-          "path": "SKILL.md"
-        }
-      ]
-    },
-    "plugins/ash-enterprise/skills/ticket-writer": {
-      "component": "skill-ticket-writer",
-      "extra-files": [
-        {
-          "type": "generic",
-          "path": "SKILL.md"
         }
       ]
     }

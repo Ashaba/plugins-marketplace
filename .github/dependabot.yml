@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    # Gives titles like "chore(deps): ..." so the PR title check passes.
+    commit-message:
+      prefix: chore
+      include: scope

@@ -1,6 +1,5 @@
 ---
 name: ticket-writer
-version: 1.1.0 # x-release-please-version
 description: >
   Convert rough ideas, bugs, or feature requests into well-structured engineering tickets.
   Use this skill whenever a user wants to: write a Jira/Linear/GitHub issue, document a bug
@@ -8,7 +7,8 @@ description: >
   acceptance criteria. Trigger on: "write a ticket", "create an issue", "document this bug",
   "turn this into a ticket", "write up a story", "create a task for", or when the user
   describes a problem or feature and wants it structured for a backlog.
-author: Ash
+metadata:
+  author: Ash
 allowed-tools:
   - Read
 ---
