@@ -1,10 +1,18 @@
 version: 2
 updates:
+  # Commit prefixes give titles like "chore(deps): ..." so the PR title check passes.
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: monthly
-    # Gives titles like "chore(deps): ..." so the PR title check passes.
+    commit-message:
+      prefix: chore
+      include: scope
+  # The Claude Code CLI that scripts/check.sh uses in CI.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
     commit-message:
       prefix: chore
       include: scope

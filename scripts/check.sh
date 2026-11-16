@@ -9,23 +9,40 @@ readonly RELEASE_MANIFEST=.release-please-manifest.json
 
 failed=0
 unchecked=0
+plugins=""  # One line per relative-path plugin: name, path, description (tab-separated).
 
 fail() { echo "FAIL: $*"; failed=1; }
 cannot_check() { echo "cannot check: $*"; unchecked=1; }
 installed() { command -v "$1" >/dev/null 2>&1; }
 
-check_marketplace() {
+load_plugins() {
+  if ! installed jq; then cannot_check "jq is not installed"; return; fi
+  plugins=$(jq -r '.plugins[] | select(.source | type == "string" and startswith("./"))
+    | [.name, (.source | ltrimstr("./")), .description] | @tsv' "$MARKETPLACE") \
+    || { fail "$MARKETPLACE: could not read the plugin list"; plugins=""; return; }
+  [[ -n $plugins ]] || cannot_check "no relative-path plugins in $MARKETPLACE"
+}
+
+check_with_claude() {
   if ! installed claude; then cannot_check "claude is not installed"; return; fi
   claude plugin validate . --strict || fail "claude plugin validate . --strict"
+  [[ -n $plugins ]] || return
+  local name path description
+  while IFS=$'\t' read -r name path description; do
+    claude plugin validate "$path" --strict || fail "claude plugin validate $path --strict"
+  done <<< "$plugins"
 }
 
 check_skills() {
   if ! installed skills-ref; then cannot_check "skills-ref is not installed"; return; fi
+  local skill_dirs=() name path description
   shopt -s nullglob
-  local skill_dirs=(plugins/*/skills/*/)
+  while IFS=$'\t' read -r name path description; do
+    skill_dirs+=("$path"/skills/*/)
+  done <<< "$plugins"
   shopt -u nullglob
   if (( ${#skill_dirs[@]} == 0 )); then
-    cannot_check "no skills found under plugins/*/skills/"
+    cannot_check "no skills found in the plugins listed in $MARKETPLACE"
     return
   fi
   local dir output
@@ -37,19 +54,12 @@ check_skills() {
 # Each plugin's version must match what release-please last released, and its
 # description must match the marketplace entry users see before installing.
 check_plugin_metadata() {
-  if ! installed jq; then cannot_check "jq is not installed"; return; fi
-  local plugins
-  plugins=$(jq -r '.plugins[] | select(.source | type == "string" and startswith("./"))
-    | [.name, .source, .description] | @tsv' "$MARKETPLACE") \
-    || { fail "$MARKETPLACE: could not read the plugin list"; return; }
-  if [[ -z $plugins ]]; then
-    cannot_check "no relative-path plugins in $MARKETPLACE"
+  if ! jq empty "$RELEASE_MANIFEST" 2>/dev/null; then
+    fail "$RELEASE_MANIFEST: could not read"
     return
   fi
-
-  local name source description path plugin_json released
-  while IFS=$'\t' read -r name source description; do
-    path=${source#./}
+  local name path description plugin_json released
+  while IFS=$'\t' read -r name path description; do
     plugin_json="$path/.claude-plugin/plugin.json"
     released=$(jq -r --arg path "$path" '.[$path] // empty' "$RELEASE_MANIFEST")
     if [[ -z $released ]]; then
@@ -63,9 +73,12 @@ check_plugin_metadata() {
   done <<< "$plugins"
 }
 
-check_marketplace
-check_skills
-check_plugin_metadata
+load_plugins
+check_with_claude
+if [[ -n $plugins ]]; then
+  check_skills
+  check_plugin_metadata
+fi
 
 if (( failed )); then exit 1; fi
 if (( unchecked )); then echo "Incomplete: some checks could not run."; exit 2; fi

@@ -1,0 +1,8 @@
+{
+  "name": "plugins-marketplace-checks",
+  "private": true,
+  "description": "Pins the Claude Code CLI that scripts/check.sh uses in CI. Dependabot keeps it current.",
+  "devDependencies": {
+    "@anthropic-ai/claude-code": "2.1.325"
+  }
+}

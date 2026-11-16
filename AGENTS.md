@@ -8,6 +8,9 @@ How to change this repo. This applies to people and to coding agents.
 - `plugins/ash-enterprise/`: the only plugin. Its version is in `.claude-plugin/plugin.json`.
 - `plugins/ash-enterprise/skills/<name>/SKILL.md`: one folder per skill.
 - `scripts/check.sh`: every repo check. CI runs the same script.
+- `scripts/test-check.sh`: tests for `check.sh`.
+- `package.json`: pins the Claude Code CLI that CI uses. Dependabot updates it.
+- `scripts/requirements.txt`: pins `skills-ref` to a commit. The **Upstream pins** workflow fails each month that `skills-ref` has newer commits.
 
 ## Add or change a skill
 
@@ -52,9 +55,13 @@ The script needs:
 
 - the Claude Code CLI (`claude`)
 - `jq`
-- `skills-ref`, installed in a virtualenv with `pip install "git+https://github.com/agentskills/agentskills@f130f348f502d9804278a617f86929846896d2e9#subdirectory=skills-ref"`
+- `skills-ref`, installed in a virtualenv with `pip install -r scripts/requirements.txt`
 
 CI runs the same script and also checks the PR title.
+
+If you change `scripts/check.sh`, you must also run `scripts/test-check.sh` and get exit code 0. It needs `rsync` as well, and uses a stand-in for `skills-ref`.
+
+When the **Upstream pins** workflow fails, change the commit in `scripts/requirements.txt` to the one it names, in a PR titled `ci: ...`.
 
 ## Keep out of the repo
 
