@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "ashabahebwa-plugins",
   "owner": {
     "name": "John Ashabahebwa"
@@ -11,7 +12,7 @@
     {
       "name": "ash-enterprise-plugin",
       "source": "./plugins/ash-enterprise",
-      "description": "Adds multiple skills including one for creating prd documentation"
+      "description": "Skills for PRDs, technical design docs, tickets, front-end design and engineering standards."
     }
   ]
 }
