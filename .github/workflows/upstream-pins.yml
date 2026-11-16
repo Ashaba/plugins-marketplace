@@ -1,0 +1,35 @@
+name: Upstream pins
+# skills-ref has no releases, so Dependabot cannot update its pin. This run
+# fails when skills-ref has commits newer than the pin in scripts/requirements.txt.
+on:
+  schedule:
+    - cron: "0 9 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  skills-ref:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REQS: scripts/requirements.txt
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: |
+          set -euo pipefail
+          pinned=$(grep -o -E 'agentskills@[0-9a-f]{40}' "$REQS" | cut -d@ -f2) \
+            || { echo "::error file=$REQS::could not read the skills-ref pin"; exit 1; }
+          latest=$(gh api 'repos/agentskills/agentskills/commits?path=skills-ref&per_page=1' --jq '.[0].sha')
+          status=$(gh api "repos/agentskills/agentskills/compare/$pinned...$latest" --jq .status)
+          case $status in
+            identical|behind) echo "skills-ref pin $pinned is current." ;;
+            ahead|diverged)
+              echo "::error file=$REQS::skills-ref has commits newer than the pin (latest $latest). Update the pin in $REQS."
+              exit 1 ;;
+            *)
+              echo "::error::unexpected compare status '$status' for $pinned...$latest"
+              exit 1 ;;
+          esac
